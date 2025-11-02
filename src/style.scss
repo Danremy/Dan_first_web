@@ -33,3 +33,67 @@
     z-index: 2;
   }
 }
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 1200px;
+  width: 90%;
+  transform: translate(-50%, -50%);
+  font-size: 2.2rem;
+  z-index: 999999;
+  padding: 30px;
+  border-radius: 25px;
+  display: none;
+  transition: opacity .4s ease;   // 淡入淡出
+  opacity: 0;                     // 初始隐藏
+  background: #fff;               // 背景
+  color: #222;                    // 文字
+  border: 8px solid #d893ff;         // 边框颜色（你原来留空）
+  pointer-events: none;           // 隐藏时不可点
+}
+
+.about {
+  max-width: 800px;
+  height: 400px;
+}
+
+.contact {
+  max-width: 500px;
+}
+
+.work{
+  max-width: 500px;
+}
+
+.next{
+  max-width: 600px;
+}
+
+
+/* 2. 显示态 */
+.modal.show {
+ display: block;            // 让 JS 少写一行
+  opacity: 1;
+  pointer-events: auto;      // 恢复可点
+}
+
+/* 3. 点「关闭」或点黑幕可收（可选） */
+.modal__close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;                 // 全屏遮罩
+  background: rgba(0,0,0,.5);
+  z-index: 9998;            // 比弹窗低一层
+  display: none;
+}
+.modal-overlay.show { display: block; }
